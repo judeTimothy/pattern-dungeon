@@ -1,0 +1,153 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr17ejitw7gof"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2k25o"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2k25o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145266, 0.145266, 0.145266, 1)
+
+[node name="Row" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Column1" type="HBoxContainer" parent="ColorRect/Row"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="1" type="Button" parent="ColorRect/Row/Column1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="2" type="Button" parent="ColorRect/Row/Column1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="3" type="Button" parent="ColorRect/Row/Column1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Column2" type="HBoxContainer" parent="ColorRect/Row"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="4" type="Button" parent="ColorRect/Row/Column2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="5" type="Button" parent="ColorRect/Row/Column2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="6" type="Button" parent="ColorRect/Row/Column2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Column3" type="HBoxContainer" parent="ColorRect/Row"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="7" type="Button" parent="ColorRect/Row/Column3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="8" type="Button" parent="ColorRect/Row/Column3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="9" type="Button" parent="ColorRect/Row/Column3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Generate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -207.0
+offset_top = -247.0
+offset_right = -64.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+text = "Generate Pattern"
+
+[node name="Generate2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -207.0
+offset_top = -152.0
+offset_right = -64.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+text = "Play Pattern"
+
+[node name="Slight" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Play" type="Timer" parent="."]
+
+[connection signal="pressed" from="ColorRect/Row/Column1/1" to="." method="_on_one_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column1/2" to="." method="_on_two_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column1/3" to="." method="_on_three_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column2/4" to="." method="_on_four_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column2/5" to="." method="_on_five_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column2/6" to="." method="_on_six_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column3/7" to="." method="_on_seven_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column3/8" to="." method="_on_eight_pressed"]
+[connection signal="pressed" from="ColorRect/Row/Column3/9" to="." method="_on_nine_pressed"]
+[connection signal="pressed" from="Generate" to="." method="_on_generate_pressed"]
+[connection signal="pressed" from="Generate2" to="." method="_on_generate_2_pressed"]
+[connection signal="timeout" from="Slight" to="." method="_on_slight_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Play" to="." method="_on_play_timeout"]
